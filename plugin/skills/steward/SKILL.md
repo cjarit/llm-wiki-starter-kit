@@ -57,7 +57,7 @@ Summary line: `N checks run · N issues found · N flagged for the owner`. State
 
 ## On approval
 
-Apply only the approved patches (checks 1–13, except 8, which is never applied). If an approved patch touches a note that already has the owner's uncommitted edits, say so and ask before staging it. For each fix, edit the file. Then append `## [YYYY-MM-DD] lint | /wiki:steward — N fixes applied` to `log.md`. If the folder is a git repository, stage each changed file by path and commit locally: `wiki(steward): N fixes applied — <checks>`. Never push.
+Apply only the approved patches. Check 8 is never applied; checks 6 and 9 are handed to the owner to run `/wiki:curator`. If an approved patch touches a note that already has the owner's uncommitted edits, say so and ask before staging it. For each fix, edit the file. Then append `## [YYYY-MM-DD] lint | /wiki:steward — N fixes applied` to `log.md`. If the folder is a git repository, stage each changed file by path and commit locally: `wiki(steward): N fixes applied — <checks>`. Never push.
 
 ## Constraints
 

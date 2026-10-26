@@ -62,7 +62,7 @@ A note built from an external source records `source:` and `ingested:`. When the
 
 ## Freshness
 
-A **Current state** section carries `_As of YYYY-MM-DD_`. The freshness limit is **60 days**: an active note whose Current state no source has confirmed for longer is written as an Unconfirmed status block (see `/wiki:curator`, Step 6) instead of being restated as current. `/wiki:steward` flags the ones that are not. Change the number here; the skills read it from this section.
+A **Current state** section carries `_As of YYYY-MM-DD_`, the date of the newest source that confirmed it. The freshness limit is **60 days**: an active note whose Current state no source has confirmed for longer is written as an Unconfirmed status block (see `/wiki:curator`, Step 6) instead of being restated as current. `/wiki:steward` flags the ones that are not. Change the number here; the skills read it from this section.
 
 ## index.md
 

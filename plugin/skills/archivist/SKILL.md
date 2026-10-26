@@ -13,11 +13,11 @@ Answer a question from the wiki, index first, with citations.
 
 ## Step 0 — Find the vault
 
-The wiki root is the current working directory and must contain `CLAUDE.md`. The notes root is the wiki root, or its `Main/` folder when `index.md` and `log.md` are there instead (two-level layout); every other path in this skill is relative to the notes root. If either is missing, stop and tell the user to open Claude Code inside their wiki folder.
+The wiki root is the current working directory and must contain `CLAUDE.md` and `GOVERNANCE.md`. The notes root is the wiki root, or its `Main/` folder when `index.md` and `log.md` are there instead (two-level layout); every other path in this skill is relative to the notes root. If either is missing, stop and tell the user to open Claude Code inside their wiki folder.
 
 ## Step 1 — Read the index
 
-Read `index.md` to find the relevant notes. Do not scan the whole vault. If the wiki has many notes, `grep -ril` on key terms narrows the list. List candidate files first and leave out notes marked `classification: restricted` unless the question is about them.
+If no question was given, ask for one. Read `index.md` to find the relevant notes. Do not scan the whole vault. If the wiki has many notes, `grep -ril` on key terms narrows the list. List candidate files first and leave out notes marked `classification: restricted` unless the question is about them.
 
 ## Step 2 — Read targeted notes
 

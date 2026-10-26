@@ -19,7 +19,7 @@ The wiki root is the current working directory and must contain `CLAUDE.md` and 
 
 ## Input
 
-A file path (absolute, or relative to the vault root such as `raw/report.pdf`), or live text pasted or described in chat.
+A file path (absolute, or relative to the notes root such as `raw/report.pdf`), or live text pasted or described in chat. If none is given, ask what to ingest.
 
 ## Step 1 — Classify
 
@@ -39,7 +39,7 @@ Split the source into atomic items and tag each with `kind`:
 | decision | the owning note's **Decisions** section as `D-NN` (next number); a project with a `type: decision-log` note uses that instead. A reversed decision is marked `Superseded by D-NN`, never deleted |
 | status change | the owning note's **Current state** (rewrite, stamp `_As of YYYY-MM-DD_`) plus one line in **History** |
 | open question or risk | the owning note's **Open questions** (remove when resolved, note it in History) |
-| minor (logistics, side mentions) | the owning note's **History** or dropped if empty of information |
+| minor (logistics, side mentions) | the owning note's **History** |
 
 Drop only exact duplicates and empty placeholders. Keep everything durable, ranked by importance, not discarded for being small.
 
@@ -64,7 +64,7 @@ Print a routing table (item → destination → new or update) and the Step 4 li
 - Current state: overwrite and stamp `_As of YYYY-MM-DD_`; the superseded state becomes one History line. History is newest first: `- **YYYY-MM-DD** — what changed (src: <source file or title>)`.
 - Conflicts: the latest-dated source wins. Record the change in History; do not adjudicate.
 - Absence is not a fact: if a risk was raised and later sources are silent, write "no further record in sources as of <date>", never "resolved".
-- Unconfirmed status: when the latest source for an active note is older than the freshness limit in `GOVERNANCE.md` § Freshness and nothing newer confirms the state, do not restate it as current and do not just bump the date. Write the Current state as:
+- Unconfirmed status: when you change an active note whose Current state `_As of_` date is older than the freshness limit in `GOVERNANCE.md` § Freshness and the source you are ingesting does not confirm that state, do not restate it as current and do not just bump the date. Write the Current state as:
 
   ```
   _Last confirmed: YYYY-MM-DD (src) · Status unclear as of YYYY-MM-DD — no record in sources since_
