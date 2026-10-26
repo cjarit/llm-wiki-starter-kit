@@ -1,0 +1,6 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "wiki",
+  "version": "0.1.0",
+  "description": "LLM Wiki workflows: curator (ingest), archivist (query), steward (lint)"
+}

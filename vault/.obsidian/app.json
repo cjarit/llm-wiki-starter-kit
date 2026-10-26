@@ -1,0 +1,4 @@
+{
+  "attachmentFolderPath": "raw/assets",
+  "userIgnoreFilters": ["CLAUDE.md", "GOVERNANCE.md", "_templates/"]
+}
