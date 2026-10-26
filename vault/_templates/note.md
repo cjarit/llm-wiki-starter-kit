@@ -17,6 +17,8 @@ ingested: {{date:YYYY-MM-DD}}
 
 ## Current state
 
+_As of {{date:YYYY-MM-DD}}_
+
 ## Decisions
 
 ## Open questions

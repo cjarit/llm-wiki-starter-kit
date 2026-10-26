@@ -41,6 +41,8 @@ cd ~/wiki && claude
 
 5. Type `/wiki:` and check that `curator`, `archivist` and `steward` are listed. If they are not, quit Claude Code and start it again.
 
+The plugin is installed for every Claude Code session, not only this wiki. Outside a wiki folder the skills stop at their first step and tell you to open Claude Code inside the wiki.
+
 ## First run
 
 The vault includes `raw/sample-source.md` so you can try all three operations.
@@ -75,13 +77,15 @@ When you are done, delete the sample note and its log line, or keep them as an e
 
 - Put a file in `raw/`, then run `/wiki:curator raw/<file>`; or run `/wiki:curator` with text pasted in the chat.
 - Ask `/wiki:archivist <question>` whenever you want an answer from your own notes.
-- Run `/wiki:steward` now and then, for example monthly.
+- Run `/wiki:steward` now and then, for example monthly. It also flags notes whose Current state no source has confirmed for 60 days.
+- If you edit notes yourself, commit your edits (or let Obsidian Git do it) before asking Claude to change the same notes, so Claude's commits stay separate from yours.
 - Claude never edits what is in `raw/`; it only moves finished files to `raw/processed/`.
 
 ## Make it yours
 
 - Folders: `projects/`, `areas/`, `reference/` are defaults. Rename or add folders, then update `CLAUDE.md` and the `domain` list in `GOVERNANCE.md` together.
 - Structure: single level by default. `CLAUDE.md` § Structure choice explains the two-level alternative; ask Claude to convert if you want it.
+- Freshness: the 60-day limit for a Current state is in `GOVERNANCE.md` § Freshness; change it there.
 - Sensitive notes: mark a note `classification: restricted` and read `GOVERNANCE.md` § Classification. Never keep passwords in the wiki.
 - Optional Obsidian plugins: Dataview (query your frontmatter), Obsidian Git (automatic commits), and the Obsidian Web Clipper browser extension (clip web pages into `raw/`). None are needed for the first run.
 - Do not push the wiki to a public repository without checking what it holds.

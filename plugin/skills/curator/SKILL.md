@@ -5,8 +5,8 @@ description: >
   spreadsheet), pasted text, or a decision or outcome — by splitting it into items and merging each
   into the existing note that owns it; a new note only when nothing fits and the owner approves.
   Use when the user asks to add, save, record, capture, file or ingest anything into the wiki or
-  knowledge base, or drops a file in raw/. Not for questions about what the wiki says (archivist)
-  or health checks (steward).
+  knowledge base, drops a file in raw/, or is about to create or edit a note without naming this
+  skill. Not for questions about what the wiki says (archivist) or health checks (steward).
 argument-hint: "[path/to/file | live text]"
 ---
 # /wiki:curator — Ingest one source
@@ -27,7 +27,7 @@ Using `GOVERNANCE.md` § Classification, decide open, internal or restricted by 
 
 ## Step 2 — Extract
 
-Read `.md` and `.txt` directly. For other formats use whichever skill or tool is available to read them (PDF, Word, spreadsheet, slides). If nothing can read the file, ask the user to paste the text. Live text is used as given. Never edit the source's content.
+Read `.md` and `.txt` directly. For other formats use whichever skill or tool is available to read them (PDF, Word, spreadsheet, slides). For a PDF or slides, text extraction can drop tables and diagrams that are images: also render the pages to images and look at them, and say what could not be read. If nothing can read the file, ask the user to paste the text. Live text is used as given. Never edit the source's content.
 
 ## Step 3 — Decompose
 
@@ -48,7 +48,7 @@ Drop only exact duplicates and empty placeholders. Keep everything durable, rank
 For every item, before proposing a new note:
 
 1. Read `index.md`.
-2. Search the destination folder and its subfolders by title, aliases, H2 headings, `summary` and 3–5 key terms (`grep -ril`).
+2. Search the destination folder and its subfolders by title, aliases, H2 headings, `summary` and 3–5 key terms (`grep -ril`). List the candidate files first and leave out notes marked `classification: restricted` unless the item itself is restricted; open a restricted note's body only when the task needs it.
 3. Fit test: merge into an existing note when the item would sit there as a section, an update, or the same subject at another depth, year or version. A note that shares only vocabulary but serves a different purpose is not a fit.
 4. Propose a new note only when at least two durable items share a topic that fits no existing note. Name it by topic, never by date or source.
 5. For every proposed new note print: `closest existing note: <path> — why not merged: <reason>` or `closest existing note: none found in <folders searched>`.
@@ -59,10 +59,25 @@ Print a routing table (item → destination → new or update) and the Step 4 li
 
 ## Step 6 — Write
 
+- Before the first write, if the folder is a git repository, run `git status --short`. If a note you are about to change already has uncommitted edits from the owner, say so and ask: commit the owner's edits first as their own commit, or leave that note out for now. Never fold the owner's unfinished edits into your commit.
 - Integrate into the owning note's text, in the voice of the note. Do not paste the source.
 - Current state: overwrite and stamp `_As of YYYY-MM-DD_`; the superseded state becomes one History line. History is newest first: `- **YYYY-MM-DD** — what changed (src: <source file or title>)`.
 - Conflicts: the latest-dated source wins. Record the change in History; do not adjudicate.
 - Absence is not a fact: if a risk was raised and later sources are silent, write "no further record in sources as of <date>", never "resolved".
+- Unconfirmed status: when the latest source for an active note is older than the freshness limit in `GOVERNANCE.md` § Freshness and nothing newer confirms the state, do not restate it as current and do not just bump the date. Write the Current state as:
+
+  ```
+  _Last confirmed: YYYY-MM-DD (src) · Status unclear as of YYYY-MM-DD — no record in sources since_
+
+  | Date | What is known | Confidence |
+  |---|---|---|
+  | YYYY-MM-DD | fact | confirmed / planned — not confirmed |
+
+  **Unclear:** what cannot be stated from sources.
+  **To confirm:** the question to ask the owner.
+  ```
+
+  Keep `status: active`. Replace the block with a normal `_As of_` stamp once a newer source confirms the state.
 - Frontmatter on every written note: all fields from `GOVERNANCE.md`, `source:` set to the file path, URL or `synthesized`, `ingested:` and `updated:` set to today.
 - New notes start from `_templates/` (`note.md`, `source.md`, `decision-log.md` or `research.md`).
 - Link new notes to related notes with `[[wikilinks]]`, and add backlinks in the most related existing notes.

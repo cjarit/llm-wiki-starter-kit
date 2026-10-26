@@ -60,6 +60,10 @@ Secrets (passwords, keys, tokens) do not belong in the wiki. If you must keep a 
 
 A note built from an external source records `source:` and `ingested:`. When the source file changes after `ingested:`, `/wiki:steward` flags the note for re-ingest. Point-in-time snapshots (a report, an export) set `status: archived` or say "snapshot" in `summary`.
 
+## Freshness
+
+A **Current state** section carries `_As of YYYY-MM-DD_`. The freshness limit is **60 days**: an active note whose Current state no source has confirmed for longer is written as an Unconfirmed status block (see `/wiki:curator`, Step 6) instead of being restated as current. `/wiki:steward` flags the ones that are not. Change the number here; the skills read it from this section.
+
 ## index.md
 
 - The master `index.md` lists every content note under its folder heading.

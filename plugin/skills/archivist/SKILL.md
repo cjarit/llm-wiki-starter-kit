@@ -17,7 +17,7 @@ The wiki root is the current working directory and must contain `CLAUDE.md`. The
 
 ## Step 1 — Read the index
 
-Read `index.md` to find the relevant notes. Do not scan the whole vault. If the wiki has many notes, `grep -ril` on key terms narrows the list.
+Read `index.md` to find the relevant notes. Do not scan the whole vault. If the wiki has many notes, `grep -ril` on key terms narrows the list. List candidate files first and leave out notes marked `classification: restricted` unless the question is about them.
 
 ## Step 2 — Read targeted notes
 
@@ -27,7 +27,7 @@ Read only the notes that match. Read a note's **Current state** and **Open quest
 
 Give a direct answer with a citation after each claim: `([[areas/sourdough-baking]])`. Keep the answer shorter than the notes it draws on.
 
-- State the `_As of_` date of anything time-sensitive.
+- State the `_As of_` date of anything time-sensitive. If a Current state is older than the limit in `GOVERNANCE.md` § Freshness, or is written as an Unconfirmed status block, say that the note has no record since its date.
 - If notes disagree, say so and cite both; do not pick silently.
 - If the wiki does not cover the question, say "not found" and list the folders and terms searched. Never answer from general knowledge as if it were in the wiki; if you add outside knowledge, label it as such.
 - A `classification: restricted` note is cited by title only; its details are not repeated unless the user asked about it directly.

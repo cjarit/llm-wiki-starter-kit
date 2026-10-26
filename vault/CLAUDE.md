@@ -36,3 +36,4 @@ Default: single level — this folder is both the repo and the Obsidian vault. A
 4. A note marked `classification: restricted` is never published, exported, embedded, indexed or synced out, and its details are never copied into an unmarked note.
 5. Append one line to `log.md` for every ingest, update and lint.
 6. Commit to git locally after each change, staging files by path. Never push unless the owner asks.
+7. Never restate an old status as current: a Current state that no source has confirmed within the freshness limit ([GOVERNANCE.md](GOVERNANCE.md) § Freshness) is written as unconfirmed.
