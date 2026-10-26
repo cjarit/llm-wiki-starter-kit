@@ -81,6 +81,10 @@ When you are done, delete the sample note and its log line, or keep them as an e
 - If you edit notes yourself, commit your edits (or let Obsidian Git do it) before asking Claude to change the same notes, so Claude's commits stay separate from yours.
 - Claude never edits what is in `raw/`; it only moves finished files to `raw/processed/`.
 
+## Other agents (Codex, Hermes and others)
+
+The kit is tested with Claude Code only. The skills are plain `SKILL.md` files, so other agents that load skills from a folder can run them. `plugin/skills/curator/references/other-agents.md` has the install command and what differs. It has not been tested with those agents.
+
 ## Make it yours
 
 - Folders: `projects/`, `areas/`, `reference/` are defaults. Rename or add folders, then update `CLAUDE.md` and the `domain` list in `GOVERNANCE.md` together.

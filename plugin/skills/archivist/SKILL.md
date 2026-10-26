@@ -9,6 +9,8 @@ argument-hint: "<question>"
 ---
 # /wiki:archivist — Query the wiki
 
+> Not using Claude Code? Read `references/other-agents.md` in the curator skill first.
+
 Answer a question from the wiki, index first, with citations.
 
 ## Step 0 — Find the vault

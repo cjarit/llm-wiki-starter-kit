@@ -9,6 +9,8 @@ disable-model-invocation: true
 ---
 # /wiki:steward — Lint
 
+> Not using Claude Code? Read `references/other-agents.md` in the curator skill first.
+
 Run every check below, build a patch list, and wait for approval before fixing. The sensitive-content scan is report-only.
 
 ## Step 0 — Find the vault

@@ -11,6 +11,8 @@ argument-hint: "[path/to/file | live text]"
 ---
 # /wiki:curator — Ingest one source
 
+> Not using Claude Code? Read `references/other-agents.md` in the curator skill first.
+
 Integrate one source into the wiki. Rules: `CLAUDE.md`, `GOVERNANCE.md`, `principles/`.
 
 ## Step 0 — Find the vault
